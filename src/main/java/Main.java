@@ -20,10 +20,8 @@ public class Main {
             fileName = args[0];
 
         //Construct a new HTTPClient
-        //Give it 32 threads to work with
         //Time out after 5 seconds of trying to connect
         HttpClient client = HttpClient.newBuilder()
-                .executor(Executors.newFixedThreadPool(16))
                 .connectTimeout(Duration.ofSeconds(5))
                 .build();
 
@@ -107,7 +105,5 @@ public class Main {
         for(Status status : stats.values()){
             System.out.println(status);
         }
-
-        System.exit(0);
     }
 }
