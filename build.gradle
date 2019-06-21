@@ -6,7 +6,7 @@ plugins {
 group 'com.jorisbolsens'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 11
+sourceCompatibility = 1.9
 
 application {
     mainClassName 'Main'
@@ -19,7 +19,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    implementation 'com.google.code.gson:gson:2.8.5'
+    compile 'com.google.code.gson:gson:2.8.5'
 }
 
 task fatJar(type: Jar) {
@@ -28,7 +28,6 @@ task fatJar(type: Jar) {
                 'Implementation-Version': version,
                 'Main-Class': 'Main'
     }
-    baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }

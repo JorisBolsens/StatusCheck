@@ -67,6 +67,7 @@ public class Main {
                     })
                     .collect(Collectors.toList()));
 
+            //Loop through all futures
             for(Future<Status> fut : futures){
                 try {
                     Status status = fut.get();
@@ -106,5 +107,7 @@ public class Main {
         for(Status status : stats.values()){
             System.out.println(status);
         }
+
+        System.exit(0);
     }
 }
